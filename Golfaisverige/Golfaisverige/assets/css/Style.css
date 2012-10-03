@@ -1,0 +1,156 @@
+﻿body
+{
+    margin: 0px;
+    background-image: url('../img/bg_main.jpg');
+}
+
+header
+{
+    width: 100%;
+    height: 100px;
+}
+
+.filterContainer
+{
+    padding: 0px;
+}
+
+.filterContainer .filterGroup
+{
+    background-position: 0px -80px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    border: 1px solid #000000;
+    color: #ffffff;
+    font: bold 16px Arial;
+    background-image: url('../img/greenGradientBg.png');
+    background-repeat: repeat-x;
+    margin: 0px;    
+}
+
+.filterContainer .filterGroup:hover
+{
+    cursor: pointer;
+}
+
+.filterContainer .filterGroup:first-child
+{
+       
+}
+
+.filterContainer div:not(:last-child)
+{
+    border-bottom: none;
+}
+
+.filterContainer .filterGroupBody
+{
+    height: auto;
+    background-color: rgba(160, 160, 160, 0.28);
+    border-left: 1px solid #000000;   
+    border-right: 1px solid #000000;
+    display: none;
+}
+.filterContainer .textInput
+{
+    padding-top: 20px;
+    padding-bottom: 20px;    
+}
+
+.filterContainer .filterGroupBody input[type="text"]
+{
+    border: 1px solid #000000;
+    height: 30px;
+    width: 250px;   
+    margin: 0 auto;
+    display: block;    
+}
+
+.filterContainer .filterGroupBody .districtItem
+{
+    background-position: 0px -80px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 18px;
+    border-bottom: 1px solid #000000;
+    color: #ffffff;
+    font: normal 14px Arial;
+    background-image: url('../img/darkGradientBg.png');
+    background-repeat: repeat-x;
+    margin: 0px;
+    height: 16px;
+}
+
+.filterContainer .filterGroupBody .districtItem:last-child
+{
+    border-bottom: none;
+}
+
+.filterContainer .filterGroupBody .districtItem:hover
+{
+    cursor: pointer;
+}
+
+.filterContainer .filterGroupBody .districtItem span
+{
+    display: block;
+    float: left;
+}
+
+.filterContainer .filterGroupBody .rankingBody
+{
+    background-position: 0px -40px;
+    background-image: url('../img/darkGradientBg.png');
+    background-repeat: repeat-x;
+    background-color: #8a8a8a;
+}
+
+.filterContainer .filterGroupBody .rankingItem
+{
+    
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 18px;
+    color: #ffffff;
+    font: normal 14px Arial;    
+    margin: 0px;
+    height: 56px; 
+}
+
+.sliderContainer
+{
+    width: 90%;
+}
+
+.filterContainer .filterGroupBody .rankingItem:last-child
+{
+    border-bottom: none;
+}
+
+.filterContainer .filterGroupBody .rankingItem h1
+{
+    color: #ffffff;
+    font: bold 14px Arial;
+}
+
+.filterContainer .filterGroupBody .selected div
+{
+    float: right;
+    background-image: url('../img/check.png');
+    background-repeat: no-repeat;
+    height: 16px;
+    width: 32px;
+}
+
+.mapOuterContainer
+{
+    border: 1px solid #000000;
+    background-color: #fcfcfc;
+    padding: 5px;   
+}
+
+.mapOuterContainer iframe
+{
+    border: 1px solid #a0a0a0;
+}

@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+<header>
+
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="span7">
+            <div class="mapOuterContainer">
+                <div style="width: 528px; height:400px;"></div>           
+            </div>
+
+            <div class="row">
+                <div class="span4">
+                    <div style="background-color: white; min-height: 200px;">
+                        <b>Klubbnamn</b><br />
+                        <span id="clubNameFilterresult" data-bind="text: textSearch"></span><br />
+                        
+                        <b>Distrikt</b><br />
+                        <ul id="districtList" data-bind="foreach: filteredDistricts">
+                            <li><span data-bind="text: name"></span></li>
+                        </ul>
+
+                        <b>Ranking</b><br />
+                        <ul data-bind="foreach: ranking">
+                            <li data-bind="visible: min() != 1 || max() != 5"><span data-bind="text: displayText"></span>: <span data-bind="text: min"></span> - <span data-bind="text: max"></span></li>
+                        </ul>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="span4">
+            <div class="filterContainer">
+                <div class="filterGroup">Klubbnamn</div>
+                <div class="filterGroupBody textInput">
+                    <input type="text" id="clubNameInput" data-bind="value: textSearch, valueUpdate: 'keyup'" />
+                </div>
+
+                @*Districts*@
+                <div class="filterGroup">Distrikt</div>
+                <div class="filterGroupBody" data-bind="foreach: availableDistricts">
+                    <div class="districtItem" data-bind="click: $root.toggleDistrict, css: {selected: $root.filteredDistricts.indexOf($data) > -1}"><span data-bind="text: name">Blekinge GDF</span><div></div></div>
+                </div>
+
+                @*Rankink*@
+                <div class="filterGroup">Ranking</div>
+                    <div class="filterGroupBody">
+                        <div class="rankingBody" data-bind="foreach: ranking">
+                            <div class="rankingItem">
+                                <h1 data-bind="text: displayText"></h1>
+                                <div class="sliderContainer">
+                                    @*<div id="sliderAvgRank"></div>*@
+                                    <div data-bind="jqSliderLow: min, jqSliderHigh: max, jqOptions: {min: 1, max: 5, values: [1,5] }"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                @*Attribut*@
+                <div class="filterGroup">Attribut</div>
+            </div>
+        </div>
+    </div>
+</div>
