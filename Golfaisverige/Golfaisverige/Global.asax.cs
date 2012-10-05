@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using AutoMapper;
+using Golfaisverige.Data;
+using Golfaisverige.Models;
 
 namespace Golfaisverige
 {
@@ -19,6 +22,9 @@ namespace Golfaisverige
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            Mapper.CreateMap<Clubs, ClubModel>();
+            Mapper.CreateMap<Courses, CourseModel>();
         }
     }
 }

@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -119,6 +122,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ClubModel.cs" />
+    <Compile Include="Models\CourseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +165,13 @@
     <Content Include="assets\external\jQuery UI\js\jquery-1.8.2.min.js" />
     <Content Include="assets\external\jQuery UI\js\jquery-ui-1.8.24.custom.min.js" />
     <Content Include="assets\external\knockoutJS\knockout-2.1.0.js" />
+    <Content Include="assets\external\tobPlugins\css\TobPlugins.css" />
+    <Content Include="assets\external\tobPlugins\img\buttonFade.png" />
+    <Content Include="assets\external\tobPlugins\js\TobPlugins.js" />
+    <Content Include="assets\external\twitter\css\bootstrap.css" />
+    <Content Include="assets\external\twitter\css\bootstrap.min.css" />
+    <Content Include="assets\external\twitter\js\bootstrap.js" />
+    <Content Include="assets\external\twitter\js\bootstrap.min.js" />
     <Content Include="assets\img\bg_main.jpg" />
     <Content Include="assets\img\check.png" />
     <Content Include="assets\img\darkGradientBg.png" />

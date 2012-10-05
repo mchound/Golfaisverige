@@ -8,28 +8,227 @@
 </header>
 
 <div class="container">
+    
     <div class="row">
-        <div class="span7">
-            <div class="mapOuterContainer">
-                <div style="width: 528px; height:400px;"></div>           
+        <div class="span8">
+            <div class="row">
+                <div class="span3">
+                    <ul class="nav nav-tabs" id="mainTabs">
+                        <li><a href="#start">Klubbar</a></li>
+                        <li class="active"><a href="#writeReview">Skriv recension</a></li>                              
+                    </ul>
+                </div>
             </div>
+            
+            <div class="row">
+                <div class="span8">
+                    <div class="tab-content">
+                        <div class="tab-pane" style="height: 400px; background-color: White; padding: 20px;" id="start">
+
+                        </div>
+
+                        <div class="tab-pane active" style="min-height: 400px; background-color: White; padding: 20px;" id="writeReview">
+                            
+                            <div class="row">
+                                <div class="span8">
+                                    <h2>Klubb</h2>
+                                    <select data-bind="foreach: availableClubs">
+                                        <option data-bind="value: id, text: name"></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="span4">
+                                    <h2>Omdöme klubben</h2>
+                                    <div>                                        
+                                        Klubbhus
+                                        <div id="clubHouseRadio" class="tobRadioButton">
+                                            <button type="button" value="1">1</button>
+                                            <button type="button" value="2">2</button>
+                                            <button type="button" value="3">3</button>
+                                            <button type="button" value="4">4</button>
+                                            <button type="button" value="5">5</button>
+                                        </div>
+                                        <textarea></textarea>
+                                    </div>
+                                    <div>
+                                        Restaurang
+                                        <div id="clubRestaurant" class="tobRadioButton">
+                                            <button type="button" value="1">1</button>
+                                            <button type="button" value="2">2</button>
+                                            <button type="button" value="3">3</button>
+                                            <button type="button" value="4">4</button>
+                                            <button type="button" value="5">5</button>
+                                        </div>
+                                        <textarea></textarea>
+                                    </div>
+                                    <div>
+                                        Träningsmöjligheter
+                                        <div id="clubTraining" class="tobRadioButton">
+                                            <button type="button" value="1">1</button>
+                                            <button type="button" value="2">2</button>
+                                            <button type="button" value="3">3</button>
+                                            <button type="button" value="4">4</button>
+                                            <button type="button" value="5">5</button>
+                                        </div>
+                                        <textarea></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="span3">
+                                    <h2>Omdöme banan</h2>
+                                    <div>                                        
+                                        Finish
+                                        <div id="courseFinishRadio" class="tobRadioButton">
+                                            <button type="button" value="1">1</button>
+                                            <button type="button" value="2">2</button>
+                                            <button type="button" value="3">3</button>
+                                            <button type="button" value="4">4</button>
+                                            <button type="button" value="5">5</button>
+                                        </div>
+                                        <textarea></textarea>
+                                    </div>
+                                    <div>                                        
+                                        Omgivning
+                                        <div id="courseSourroundingRadio" class="tobRadioButton">
+                                            <button type="button" value="1">1</button>
+                                            <button type="button" value="2">2</button>
+                                            <button type="button" value="3">3</button>
+                                            <button type="button" value="4">4</button>
+                                            <button type="button" value="5">5</button>
+                                        </div>
+                                        <textarea></textarea>
+                                    </div>
+                                    <div>                                        
+                                        Svårighetsgrad
+                                        <div id="courseDifficulty" class="tobRadioButton">
+                                            <button type="button" value="1">1</button>
+                                            <button type="button" value="2">2</button>
+                                            <button type="button" value="3">3</button>
+                                            <button type="button" value="4">4</button>
+                                            <button type="button" value="5">5</button>
+                                        </div>
+                                        <textarea></textarea>
+                                    </div>
+                                    <div>                                        
+                                        Snabbhet greener
+                                        <div id="courseGreenSpeed" class="tobRadioButton">
+                                            <button type="button" value="1">1</button>
+                                            <button type="button" value="2">2</button>
+                                            <button type="button" value="3">3</button>
+                                            <button type="button" value="4">4</button>
+                                            <button type="button" value="5">5</button>
+                                        </div>
+                                        <textarea></textarea>
+                                    </div>
+                                    <div>                                        
+                                        Helhetsintryck
+                                        <div id="courseOverall" class="tobRadioButton">
+                                            <button type="button" value="1">1</button>
+                                            <button type="button" value="2">2</button>
+                                            <button type="button" value="3">3</button>
+                                            <button type="button" value="4">4</button>
+                                            <button type="button" value="5">5</button>
+                                        </div>
+                                        <textarea></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="span8">
+                                    <h2>Dina uppgifter</h2>
+                                    <label>Namn</label>
+                                    <input type="text" />
+
+                                    <br /><br />
+
+                                    <label>E-Post</label>
+                                    <input type="text" />
+
+                                    <br /><br />
+
+                                    <label>Hemmaklubb</label><br />
+                                    <select data-bind="foreach: availableClubs">
+                                        <option data-bind="value: id, text: name"></option>
+                                    </select>
+
+                                    <br /><br />
+
+                                    <label>Handikapp</label>
+                                    <input type="text" />
+
+                                    <br /><br />
+                            
+                                    <div id="genderRadio" class="tobRadioButton">
+                                        <button type="button" value="man">Man</button>
+                                        <button type="button" value="kvinna">Kvinna</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br />
 
             <div class="row">
                 <div class="span4">
-                    <div style="background-color: white; min-height: 200px;">
-                        <b>Klubbnamn</b><br />
-                        <span id="clubNameFilterresult" data-bind="text: textSearch"></span><br />
-                        
-                        <b>Distrikt</b><br />
-                        <ul id="districtList" data-bind="foreach: filteredDistricts">
-                            <li><span data-bind="text: name"></span></li>
-                        </ul>
 
-                        <b>Ranking</b><br />
-                        <ul data-bind="foreach: ranking">
-                            <li data-bind="visible: min() != 1 || max() != 5"><span data-bind="text: displayText"></span>: <span data-bind="text: min"></span> - <span data-bind="text: max"></span></li>
-                        </ul>                        
+                    <div class="row">
+                        <div class="span4">
+                            
+                            <ul class="nav nav-tabs">
+                              <li class="active"><a href="#home">Aktiva filter</a></li>                              
+                            </ul>
+                        </div>
                     </div>
+
+                    <div class="row">
+                        <div class="span4">
+                            <div style="background-color: white; min-height: 200px; margin-top: 0px;">
+                                <b>Klubbnamn</b><br />
+                                <span id="clubNameFilterresult" data-bind="text: textSearch"></span><br />
+                        
+                                <b>Distrikt</b><br />
+                                <ul id="districtList" data-bind="foreach: filteredDistricts">
+                                    <li><span data-bind="text: name"></span></li>
+                                </ul>
+
+                                <b>Ranking</b><br />
+                                <ul data-bind="foreach: ranking">
+                                    <li data-bind="visible: min() != 1 || max() != 5"><span data-bind="text: displayText"></span>: <span data-bind="text: min"></span> - <span data-bind="text: max"></span></li>
+                                </ul>                        
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="span4">
+                    <ul class="nav nav-tabs" id="clubCoursTabs">
+                        <li class="active"><a href="#filteredClubs">Klubbar</a></li>
+                        <li><a href="#filteredCourses">Banor</a></li>                              
+                    </ul>
+                    <div class="filteredItemsContainer">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="filteredClubs">
+                                <div class="filteredClubsContainer">
+                                    <ul data-bind="foreach: filteredClubs">
+                                        <li><a href="#" data-bind="text: name"></a></li>
+                                    </ul>
+                                    <a style="float: right;" href="#" data-bind="click: showMoreClubs, visible: $root.filteredClubsCount() > numberOfFilteredClubsToShow()">Visa fler (<span data-bind="text: numberOfFilteredClubsToShow()"></span>/<span data-bind="text: $root.filteredClubsCount()"></span>)</a>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="filteredCourses">
+                                <div class="filteredClubsContainer tabPage"></div>                                
+                            </div>  
+                        </div>
+                    </div>                    
                 </div>
             </div>
         </div>
@@ -51,10 +250,9 @@
                 <div class="filterGroup">Ranking</div>
                     <div class="filterGroupBody">
                         <div class="rankingBody" data-bind="foreach: ranking">
-                            <div class="rankingItem">
+                            <div class="rankingItem districtItem">
                                 <h1 data-bind="text: displayText"></h1>
-                                <div class="sliderContainer">
-                                    @*<div id="sliderAvgRank"></div>*@
+                                <div class="sliderContainer">                                    
                                     <div data-bind="jqSliderLow: min, jqSliderHigh: max, jqOptions: {min: 1, max: 5, values: [1,5] }"></div>
                                 </div>
                             </div>

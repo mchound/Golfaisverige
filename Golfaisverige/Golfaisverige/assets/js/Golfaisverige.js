@@ -1,14 +1,24 @@
 ﻿$(function () {
 
     $('.filterGroup').click(function (eventObject) {
-
-        $(this).next().toggle(300, 'linear', function () {});
+        $(this).next().toggle(300, 'linear', function () { });
     });
-   
+
+    $('#clubCoursTabs li').click(function (e) {
+        e.preventDefault();
+        $(this).children('a').tab('show');
+    });
+
+    $('#mainTabs li').click(function (e) {
+        e.preventDefault();
+        $(this).children('a').tab('show');
+    }); 
+
+    $.tobRadioButtonJS();
 });
 
-function RankingFilterProperty(min, max, displayText) {
-    
+// Models
+function RankingFilterProperty(min, max, displayText) {    
     var self = this;    
     self.displayText = displayText;
     self.min = ko.observable(min);
@@ -21,14 +31,51 @@ function District(name, id){
     self.id = id;
 }
 
+function Club(data) {
+    var self = this;
+    self.name = data.Name;
+    self.id = data.Id;
+    self.districtId = data.DistrictId;
+}
+
+// ViewModel
 function FilterViewModel() {
     var self = this;
+
+    // Data
     self.textSearch = ko.observable("");
     self.availableDistricts = ko.observableArray(InitDistrictArray());
     self.filteredDistricts = ko.observableArray();
-
     self.ranking = ko.observableArray(InitRankingArray());
 
+    self.availableClubs = ko.observableArray();
+    self.numberOfFilteredClubsToShow = ko.observable(10);
+    self.filteredClubsCount = ko.observable(self.availableClubs().length);
+    self.filteredClubs = ko.computed(function () {
+        var filtered = ko.utils.arrayFilter(self.availableClubs(), function (club) {
+
+            // Text Search
+            if (self.textSearch() != "" & club.name.toLowerCase().indexOf(self.textSearch().toLowerCase()) == -1) {
+                return false;
+            }
+
+            // District
+            if (self.filteredDistricts().length > 0) {
+                if (jQuery.grep(self.filteredDistricts(), function (district) { return club.districtId == district.id; }).length == 0) {
+                    return false;
+                }
+            }
+
+            club.districtId
+
+            return true;
+        });
+        self.filteredClubsCount(filtered.length);
+        return filtered.splice(0, self.numberOfFilteredClubsToShow());
+    });
+    
+
+    // Behavior
     self.districtInFilter = function (district) {
         return self.filteredDistricts.indexOf(district);
     }
@@ -41,6 +88,18 @@ function FilterViewModel() {
             self.filteredDistricts.push(district);
         }
     }
+
+    self.showMoreClubs = function () {
+        var old = self.numberOfFilteredClubsToShow();
+        var newVal = old + 5;
+        self.numberOfFilteredClubsToShow(newVal);
+    };
+
+    // On init
+    $.getJSON("/api/data", function (allData) {
+        var mappedClubs = $.map(allData, function (clubData) { return new Club(clubData) });
+        self.availableClubs(mappedClubs);
+    });
 }
 
 ko.bindingHandlers.jqSliderLow = {
